@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+/* フッター */
+footer {
+  width: 100%;
+  height: 120px;
+  background-color: #A6B2C1;
+  color: white;
+  text-align: center;
+
+  position: fixed; /*絶対位置で固定*/
+  bottom: 0px; /*下に配置*/
+}
+
+/* ヘッダー */
+.site-header{
+  background-color: aquamarine;
+}
+/* ログインページ */
+
+.login{
+	background-color: rgb(150, 146, 146);
+}
+.admin_regist{
+  background-color: rgb(150, 146, 146);
+}
+
+/*横に並ぶ(要らなかったら消して)*
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  margin-right: 20px;
+}
