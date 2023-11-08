@@ -11,16 +11,15 @@ echo '<form action="admin_regist_output_submit.php" method="post">';
     echo '<tr><td>担当クラス:</td><td>';
     echo '<input type="text" id="class" name="class" autocomplete="class" value="', $_SESSION['class'], '">';
     echo '</td></tr>';
-    echo '<tr><td>メールアドレス:</td><td>';
+    echo '<tr><td>メールアドレス::</td><td>';
     echo '<input type="text" id="mailadress" name="mailadress" autocomplete="mailadress" value="', $_SESSION['mailadress'], '">';
     echo '</td></tr>';
-    echo '<tr><td>パスワード:</td><td>';
+    echo '<tr><td>パスワード</td><td>';
     echo '<input type="password" id="password" autocomplete="password" name="password" value="', $_SESSION['password'], '">';
     echo '</td></tr>';
     echo '</table>';
     echo '<input type="submit" value="登録する">';
     echo '</form>'; 
 ?>
-  <!-- セッションを保持して戻る -->
-  <button type="button" onclick=history.back()>＜前のページへ</button>
+    <a href="admin_regist.php">戻る</a>
 <?php require 'footer.php';?>

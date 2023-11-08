@@ -1,4 +1,4 @@
- <?php require 'header.php'; ?>
+<?php require 'header.php'; ?>
 <div class="container-calendar">
   <h4 id="monthAndYear"></h4>
   <div class="button-container-calendar">
@@ -28,22 +28,6 @@
           <option value=11>12月</option>
       </select>
       <select id="year" onchange="jump()"></select>
-      <?php
- $pdo = new PDO('mysql:host=localhost;dbname=2023_attendez;charset=utf8', 'root', '');
- $sql = $pdo->prepare('select * from calendar where holiday');
- if ($sql->execute()) {
-    $results = $sql->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($results as $row) {
-        // ここで取得した行のデータを出力
-       // echo "ID: " . $row['id'] . "<br>";
-        $holiday[] = $row['holiday'];
-    }
-} else {
-    echo 'データの取得に失敗しました。';
-}
-
-
-      ?>
         <script>
           function generate_year_range(start, end) {
               var years = "";
@@ -148,40 +132,6 @@
             function daysInMonth(iMonth, iYear) {
               return 32 - new Date(iYear, iMonth, 32).getDate();
             }
-         // カレンダー内の日付がクリックされたときの処理
-  document.addEventListener("click", function (e) {
-    if (e.target && e.target.classList.contains("date-picker")) {
-      // クリックされた日付の情報を取得
-      const clickedDate = e.target.getAttribute("data-date");
-      const clickedMonth = e.target.getAttribute("data-month");
-      const clickedYear = e.target.getAttribute("data-year");
-      const message = clickedYear + '/' + clickedMonth + '/' + clickedDate;
-
-      // アラートメッセージを表示
-      const confirmationMessage = message + '日を本当に休日にしますか？';
-      if (confirm(confirmationMessage)) {
-        // ユーザーが「OK」を押した場合、確認画面へリダイレクト
-        const confirmationUrl = "holiday_set_confirm.php?date=" + clickedYear + "-" + clickedMonth + "-" + clickedDate;
-        window.location.href = confirmationUrl;
-      }
-    } else if (e.target && e.target.tagName === "SPAN" && e.target.parentElement.classList.contains("date-picker")) {
-      // 数字部分がクリックされた場合もアラートメッセージを表示
-      const dateSpan = e.target;
-      const clickedDate = dateSpan.textContent;
-      const dateCell = dateSpan.parentElement;
-      const clickedMonth = dateCell.getAttribute("data-month");
-      const clickedYear = dateCell.getAttribute("data-year");
-      const message = clickedYear + '年' + clickedMonth + '月' + clickedDate;
-
-      // アラートメッセージを表示
-      const confirmationMessage = message + '日を本当に休日にしますか？';
-      if (confirm(confirmationMessage)) {
-        // ユーザーが「OK」を押した場合、確認画面へリダイレクト
-        const confirmationUrl = "holiday_set_confirm.php?date=" + clickedYear + "-" + clickedMonth + "-" + clickedDate;
-        window.location.href = confirmationUrl;
-      }
-    }
-  });
             </script>
     </div>
 </div>
@@ -268,17 +218,5 @@
       border-radius: 3px;
       padding: 5px 1em;
   }
-  <?php
-  // $holiday 配列に含まれる日付を分解し、セルのスタイルを設定
-  if (isset($holiday) && is_array($holiday)) {
-    foreach ($holiday as $holidayDate) {
-        $year = substr($holidayDate, 0, 4);
-        $month = substr($holidayDate, 4, 2);
-        $day = substr($holidayDate, 6, 2);
-
-        echo ".date-picker[data-date='$day'][data-month='$month'][data-year='$year'] { background-color: #87cefa; color: black; }";
-    }
-}
-  ?>
   </style>
   <?php require 'footer.php';?>
