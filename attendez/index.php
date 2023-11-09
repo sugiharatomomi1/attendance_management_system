@@ -15,7 +15,7 @@ if(isset($_SESSION['id']['mailadress'])){//データベースからの名前チ�
     <input type="submit" value="ログイン"/><br>
     </div>
 </form>
-    <a href="login.php">パスワード・メールアドレスを忘れた場合</a><br>
+    <a href="pass_forget.php">パスワードを忘れた場合</a><br>
     <a href="admin_regist.php">新規登録</a>
 
 <?php require 'footer.php';?>
