@@ -30,6 +30,14 @@
   echo '</div>';
 ?>
 
+<?php
+/*
+$pdo =new PDO('mysql:host=localhost;dbname=2023_attendez;charset=utf8',
+                'root','');
+$sql=$pdo->prepare('select * from student_info 
+                    where student_number,attendance_number,name');
+*/
+?>
 <script>
 //現在の日付をセレクトボックスに入れている
 (function() {
