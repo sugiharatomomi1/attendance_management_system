@@ -4,7 +4,9 @@
 <div class="admin_regist_output">
 
 <?php
-
+if(isset($_REQUEST['school_id'])){
+    $_SESSION['school_id']=$_REQUEST['school_id'];
+}
 if(isset($_REQUEST['name'])){
     $_SESSION['name']=$_REQUEST['name'];
 }
