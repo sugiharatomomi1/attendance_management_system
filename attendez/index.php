@@ -1,5 +1,3 @@
-<?php require 'header.php'; ?>
-<!--ログイン画面-->
 <?php
 if(isset($_SESSION['id']['mailadress'])){//データベースからの名前チェック？
     header('Location: http://192.168.104.88/2023/attendez/admin_regist.php');
@@ -7,6 +5,9 @@ if(isset($_SESSION['id']['mailadress'])){//データベースからの名前チ�
      exit();
  }
 ?>
+<?php require 'header.php'; ?>
+<!--ログイン画面-->
+
 <div class="login">
     出欠管理システム新規登録
 <form action="login_output.php" methood="post">
