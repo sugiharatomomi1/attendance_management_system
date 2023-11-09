@@ -4,7 +4,7 @@
 <div class="admin_regist">
     出欠管理システム新規登録
 <?php
-$name=$class=$mailadress=$password='';
+ $school_id=$name=$class=$mailadress=$password='';
 if(isset($_SESSION['admin'])){
     $school_id=$_SESSION['admin']['school_id'];
     $name=$_SESSION['admin']['name'];
