@@ -1,24 +1,13 @@
-<?php
-session_start();
-?>
-<!--ログイン画面-->
 <?php require 'header.php'; ?>
-<?php
-if (isset($_SESSION['id']['mail'])){
-    header('Location: http://192.168.104.88/2023/attendez/register.php');
-    exit();
-}
-?>
+
+<!--ログイン画面-->
+
 <div class="login">
-    出欠管理システム新規登録
+    出欠管理システム（学生用）
 <form action="login-output.php" methood="post">
-学校ID:<input type="text" name="id"><br>
-メールアドレス:<input type="text" name="mail"><br>
+ログインID:<input type="text" name="id"><br>
 パスワード:<input type="password" name="password"><br>
     <input type="submit" value="ログイン"/><br>
     </div>
 </form>
-    <a href="login.php">パスワード・メールアドレスを忘れた場合</a><br>
-    <a href="login.php">新規登録</a>
-
 <?php require 'footer.php';?>
