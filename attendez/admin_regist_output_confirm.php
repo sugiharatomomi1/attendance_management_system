@@ -5,6 +5,9 @@
     <?php
 echo '<form action="admin_regist_output_submit.php" method="post">';
     echo '<table>';
+    echo '<tr><td>学校ID:</td><td>';
+    echo '<input type="text" id="school_id" name="school_id" autocomplete="school_id" value="', $_SESSION['school_id'], '">';
+    echo '</td></tr>';
     echo '<tr><td>氏名:</td><td>';
     echo '<input type="text" id="name" name="name" autocomplete="name" value="', $_SESSION['name'], '">';
     echo '</td></tr>';
