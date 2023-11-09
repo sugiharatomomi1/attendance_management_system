@@ -6,6 +6,7 @@
 <?php
 $name=$class=$mailadress=$password='';
 if(isset($_SESSION['admin'])){
+    $school_id=$_SESSION['admin']['school_id'];
     $name=$_SESSION['admin']['name'];
     $class=$_SESSION['admin']['class'];
     $mailadress=$_SESSION['admin']['mailadress'];
@@ -13,6 +14,9 @@ if(isset($_SESSION['admin'])){
 }
     echo '<form action="admin_regist_output.php" method="post">';
     echo '<table>';
+    echo '<tr><td>学校ID:</td><td>';
+    echo '<input type="text" id="school_id" name="school_id" autocomplete="school_id" value="', $school_id, '">';
+    echo '</td></tr>';
     echo '<tr><td>氏名:</td><td>';
     echo '<input type="text" id="name" name="name" autocomplete="name" value="', $name, '">';
     echo '</td></tr>';
@@ -38,6 +42,7 @@ if(isset($_SESSION['admin'])){
 </script>
 <script>
 $('form').submit(function() {
+  const school_id = $("#school_id").val();
   const name = $("#name").val();    //値を読み取っている
   const className = $("#class").val();
   const mailadress = $("#mailadress").val();
@@ -47,7 +52,7 @@ $('form').submit(function() {
     alert("パスワードが一致していません");
   }
 
-  if (!name || !className || !mailadress ) {
+  if (!school_id || !name || !className || !mailadress ) {
     alert("すべての項目を入力してください。");
     return false; // フォームの送信を停止
   }
