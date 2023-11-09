@@ -16,8 +16,9 @@ $sql=$pdo->prepare('select * from admin
     $sql->execute([htmlspecialchars($_SESSION['mailadress'])]);
 }
 if(empty($sql->fetchAll())){
-    $sql=$pdo->prepare('insert into admin values(null,?,?,?,?)');
-    $sql->execute([htmlspecialchars($_SESSION['name']), htmlspecialchars($_SESSION['class']),
+    $sql=$pdo->prepare('insert into admin values(null,?,?,?,?,?)');
+    $sql->execute([htmlspecialchars($_SESSION['school_id']),htmlspecialchars($_SESSION['name']), 
+                  htmlspecialchars($_SESSION['class']),
     htmlspecialchars($_SESSION['mailadress']), htmlspecialchars($_SESSION['password'])]);
     echo '登録が完了しました';
     echo '<li><a href="index.php">ホーム画面へ</a></li>';
