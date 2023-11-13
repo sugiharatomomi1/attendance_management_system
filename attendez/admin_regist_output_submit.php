@@ -5,18 +5,18 @@
 <?php
 $pdo =new PDO('mysql:host=localhost;dbname=2023_attendez;charset=utf8',
                 'root','');
-$sql=$pdo->prepare('select * from admin 
+$sql=$pdo->prepare('select * from myapp_admin_info 
                     where mailadresss=? and password=?');//ログインとパスワードが完全一致か？
- if(isset($_SESSION['admin'])){
-    $id=$_SESSION['admin']['id'];
-    $sql=$pdo->prepare('select * from admin where id!=? and mailadress=?');
+ if(isset($_SESSION['myapp_admin_info'])){
+    $id=$_SESSION['myapp_admin_info']['id'];
+    $sql=$pdo->prepare('select * from  myapp_admin_info where id!=? and mailadress=?');
     $sql->execute([$id, htmlspecialchars($_SESSION['mailadress'])]);
 }else{
-    $sql=$pdo->prepare('select * from admin where mailadress=?');
+    $sql=$pdo->prepare('select * from  myapp_admin_info where mailadress=?');
     $sql->execute([htmlspecialchars($_SESSION['mailadress'])]);
 }
 if(empty($sql->fetchAll())){
-    $sql=$pdo->prepare('insert into admin values(null,?,?,?,?,?)');
+    $sql=$pdo->prepare('insert into  myapp_admin_info values(null,?,?,?,?,?)');
     $sql->execute([htmlspecialchars($_SESSION['school_id']),htmlspecialchars($_SESSION['name']), 
                   htmlspecialchars($_SESSION['class']),
     htmlspecialchars($_SESSION['mailadress']), htmlspecialchars($_SESSION['password'])]);

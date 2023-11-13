@@ -1,4 +1,3 @@
-
 <?php require 'header.php'; ?>
 <!--新規会員登録の選択画面-->
 <div class="admin_regist">
@@ -59,4 +58,3 @@ $('form').submit(function() {
 });
 </script>
 
-<?php require 'footer.php';?>

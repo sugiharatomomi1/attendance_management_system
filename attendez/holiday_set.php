@@ -1,4 +1,18 @@
  <?php require 'header.php'; ?>
+ <html  lang="ja">
+ <head>
+    <meta cgarset=UTF-8>
+    <title>予定の削除/</title>
+</head>
+<body>
+    <h2>予定の削除</h2>
+    <form action="delete.php" method="post">
+    <label for="Id">削除する予定のID：</label>
+    <input type="text" name="Id" required>
+    <button type="submit">削除</button>
+</form>
+</body>
+</html>
 <div class="container-calendar">
   <h4 id="monthAndYear"></h4>
   <div class="button-container-calendar">
@@ -29,21 +43,20 @@
       </select>
       <select id="year" onchange="jump()"></select>
       <?php
- $pdo = new PDO('mysql:host=localhost;dbname=2023_attendez;charset=utf8', 'root', '');
- $sql = $pdo->prepare('select * from calendar where holiday');
- if ($sql->execute()) {
+$pdo = new PDO('mysql:host=localhost;dbname=2023_attendez;charset=utf8', 'root', '');
+$sql = $pdo->prepare('select * from calendar where holiday');
+if ($sql->execute()) {
+
     $results = $sql->fetchAll(PDO::FETCH_ASSOC);
     foreach ($results as $row) {
         // ここで取得した行のデータを出力
-       // echo "ID: " . $row['id'] . "<br>";
+        // echo "ID: " . $row['id'] . "<br>";
         $holiday[] = $row['holiday'];
+     }
+    } else {
+        echo 'データの取得に失敗しました。';
     }
-} else {
-    echo 'データの取得に失敗しました。';
-}
-
-
-      ?>
+    ?>
         <script>
           function generate_year_range(start, end) {
               var years = "";
@@ -224,7 +237,7 @@
   .date-picker.selected {
       font-weight: bold;
       color: #fff;
-      background: #cc0000;
+      background: #0c99f0;
   }
   .date-picker.selected span {
       border-bottom: 2px solid currentColor;
@@ -276,7 +289,7 @@
         $month = substr($holidayDate, 4, 2);
         $day = substr($holidayDate, 6, 2);
 
-        echo ".date-picker[data-date='$day'][data-month='$month'][data-year='$year'] { background-color: #87cefa; color: black; }";
+        echo ".date-picker[data-date='$day'][data-month='$month'][data-year='$year'] { background-color: #ff0400; color: #ffffff; }";
     }
 }
   ?>
