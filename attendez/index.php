@@ -1,23 +1,41 @@
 <link rel="stylesheet" href="style.css">
-<?php
-if(isset($_SESSION['myapp_admin_info']['mailadress'])){//データベースからの名前チェック？
-    header('Location: http://192.168.104.88/2023/attendez/admin_regist.php');
-           //ログインされていなかったら、新規会員登録画面へ
-     exit();
- }
+<?php session_start();
+
+if(isset($_SESSION['errmsg'])) {
+    $msg = $_SESSION['errmsg'];
+    $_SESSION['errmsg'] = "";
+}
+
 ?>
 
 <!--ログイン画面-->
+    <div class="form-wrapper">
+  <h1>Attend EZ(生徒ログイン)</h1>
+  <form action="login_output.php" method="POST">
 
-<div class="login">
-    <h1 id="login-title">出欠管理システム(管理者用)</h1>
-<form action="login_output.php" methood="post">
-<p class="mailaddress">メールアドレス：</p>
-<input type="text" id="mailaddress" name="mailadress"><br>
-<p class="password">パスワード：</p>
-<input type="password" id="password" name="password"><br>
-    <input type="submit" id="login" value="ログイン"/><br>
+    <div class="form-item" id="error_message">
+        <?php if(isset($msg)) { 
+            echo "$msg";
+         } ?>
     </div>
-</form>
-    <a id="password-forget" href="password_forget.php">パスワードを忘れた場合</a><br>
-    <a id="admin-regist" href="admin_regist.php">新規登録</a>
+
+    <div class="form-item">
+      <label for="student_number"></label>
+      <input type="text" name="student_number" required="required" placeholder="学籍番号"></input>
+    </div>
+    
+    <div class="form-item">
+      <label for="password"></label>
+      <input type="password" name="password" required="required" placeholder="パスワード"></input>
+    </div>
+    
+    <div class="button-panel">
+      <input type="submit" class="button" title="Sign In" value="ログイン"></input>
+    </div>
+  
+    </form>
+  
+    <div class="form-footer">
+        <p>パスワードを忘れた場合は担任の先生にお問い合わせください。</p>
+    </div>
+</div>
