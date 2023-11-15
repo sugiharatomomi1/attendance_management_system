@@ -1,12 +1,9 @@
-<?php require 'header.php'; ?>
 <!--ログイン確認画面-->
-<?php
-$pdo =new PDO('mysql:host=localhost;dbname=2023_attendez;charset=utf8',
-                'root','');
-$sql=$pdo->prepare('select * from students_info 
-                    where id=? and password=?');//ログインとパスワードが完全一致か？
-$sql->execute([$_REQUEST['id'],$_REQUEST['password']]);
-if(isset($_REQUEST['id']) && isset($_REQUEST['password'])){
+<?php session_start();
+$pdo=new PDO('mysql:host=localhost;dbname=2023_attendez;charset=utf8', 'root','');
+$sql=$pdo->prepare('select * from students_info where student_number=? and password=?');//ログインとパスワードが完全一致か？
+$sql->execute([$_REQUEST['student_number'],$_REQUEST['password']]);
+if(isset($_REQUEST['student_number']) && isset($_REQUEST['password'])){
     $row = $sql->fetch(PDO::FETCH_ASSOC);
     
     if ($row) {
@@ -20,13 +17,13 @@ if(isset($_REQUEST['id']) && isset($_REQUEST['password'])){
             'class' => $row['class'],
             'password' => $row['password']
         ];
-        header('Location: http://192.168.104.88/2023/attendez_user/today_question.php');
+        header('Location: today_question.php');
         //メニュー画面へ
         exit();
     } else {
         // ログイン情報が一致しない場合
-        echo 'ログイン名またはパスワードが違います。';
-        echo '<br><a href="index.php">戻る</a>';
+        $_SESSION['errmsg'] = '学籍番号またはパスワードが違います。';
+        header('Location: index.php');
     }
 }
 ?>

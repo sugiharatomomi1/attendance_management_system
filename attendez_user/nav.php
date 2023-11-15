@@ -1,19 +1,19 @@
 <div class="gnavi__wrap">
     <ul class="gnavi__lists">
         <li class="gnavi__list">
-            <a href="menu.php">遅刻・早退等報告</a>
+            <a href="attend_report.php">遅刻・早退等報告</a>
         </li>
 
         <li class="gnavi__list">
-            <a href=".py">今日の問題</a>
+            <a href="today_question.php">今日の問題</a>
         </li>
 
         <li class="gnavi__list">
-            <a href="holiday_set.php">成績</a>
+            <a href="result.php">成績</a>
         </li>
 
         <li class="gnavi__list">
-            <a href="holiday_set.php">ランキング</a>
+            <a href="rank.php">ランキング</a>
         </li>
     </ul>
 </div>
