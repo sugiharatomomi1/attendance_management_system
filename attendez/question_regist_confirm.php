@@ -3,6 +3,7 @@
 <?php
 echo '<form action="question_regist_output.php" medhod="post">';
 //入力情報の表示
+echo '<p>問題文</p>';
 echo '<p>', htmlspecialchars($_REQUEST['question']), '</p>';
 echo '<tr>';
 echo '<td>ア：', htmlspecialchars($_REQUEST['ans1']), ' </td>';
@@ -12,7 +13,7 @@ echo '<td>エ：', htmlspecialchars($_REQUEST['ans4']), ' </td>';
 echo '</tr>';
 echo '<p>正答：',htmlspecialchars($_REQUEST['answer']), '</p>';
 //入力情報の受け渡しデータ格納場所
-echo '<input type="hidden" name="question" value="',  $_REQUEST['question'], '">' ;
+echo '<input type="hidden" name="question" value="', $_REQUEST['question'], '">';
 echo '<input type="hidden" name="ans1" value="', $_REQUEST['ans1'], '">';
 echo '<input type="hidden" name="ans2" value="', $_REQUEST['ans2'], '">';
 echo '<input type="hidden" name="ans3" value="', $_REQUEST['ans3'], '">';

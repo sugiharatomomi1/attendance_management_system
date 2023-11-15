@@ -16,7 +16,7 @@ foreach ($sql as $row) {
     echo '<br>';
     echo '正答：<input type="text" name="answer" value="', $row['question_answer'], '">';
     echo '<input type="submit" value="更新">';
-    echo '<a href=question_delete.php?id=', $row['question_id'], '">この問題を削除する</a>';
+    echo '<a href=question_delete.php?id=', $row['question_id'], '>この問題を削除する</a>';
     echo '</form>';
 }
 ?>

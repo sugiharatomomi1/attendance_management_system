@@ -1,154 +1,5 @@
 @charset "UTF-8";
 
-/* 管理者ログインページ */
-
-/* Fonts */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
-
-/* fontawesome */
-@import url(http://weloveiconfonts.com/api/?family=fontawesome);
-[class*="fontawesome-"]:before {
-  font-family: 'FontAwesome', sans-serif;
-}
-
-/* Simple Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-/* body */
-body {
-  background: #e9e9e9;
-  color: #5e5e5e;
-  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
-}
-
-/* Form Layout */
-.form-wrapper {
-  background: #fafafa;
-  margin: 150px auto;
-  padding: 0 1em;
-  max-width: 450px;
-}
-
-#error_message {
-  text-align: center;
-  color: red;
-  
-}
-
-h1 {
-  text-align: center;
-  padding: 1em 0;
-}
-
-form {
-  padding: 0 1.5em;
-}
-
-.form-item {
-  margin-bottom: 0.75em;
-  width: 100%;
-}
-
-.form-item input {
-  background: #fafafa;
-  border: none;
-  border-bottom: 2px solid #e9e9e9;
-  color: #666;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1em;
-  height: 50px;
-  transition: border-color 0.3s;
-  width: 100%;
-}
-
-.form-item input:focus {
-  border-bottom: 2px solid #c0c0c0;
-  outline: none;
-}
-
-.button-panel {
-  margin: 2em 0 0;
-  width: 100%;
-}
-
-.button-panel .button {
-  background: #3492d1;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  height: 50px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.2em;
-  letter-spacing: 0.05em;
-  text-align: center;
-  text-transform: uppercase;
-  transition: background 0.3s ease-in-out;
-  width: 100%;
-}
-
-.button:hover {
-  background: #004d80;
-}
-
-.form-footer {
-  font-size: 1em;
-  padding: 2em 0;
-  text-align: center;
-}
-
-.form-footer a {
-  color: #8c8c8c;
-  text-decoration: none;
-  transition: border-color 0.3s;
-}
-
-.form-footer a:hover {
-  border-bottom: 1px dotted #8c8c8c;
-}
-
-/* #login-title {
-  font-size: 50px;
-  position: absolute;
-  left: 640px;
-  top: 100px;
-}
-.mailaddress {
-  font-size: 18px;
-  position: absolute;
-  left: 760px;
-  top: 286px;
-}
-#mailaddress {
-  position: absolute;
-  left: 910px;
-  top: 307px;
-}
-.password {
-  position: absolute;
-  left: 812px;
-  top: 350px;
-}
-#password {
-  position: absolute;
-  left: 910px;
-  top: 367px;
-}
-#login {
-  position: absolute;
-  left: 895px;
-  top: 480px;
-}
-#password-forget {
-  position: absolute;
-  left: 848px;
-  top: 630px;
-}
-#admin-regist {
-  position: absolute;
-  left: 900px;
-  top: 700px;
-} */
-
 /* リンクの色消し */
 a {
   color: black; /* aタグの色変更 */
@@ -165,25 +16,6 @@ a :visited {
 
 .nav a :visited {
   color: black; /* ヘッダー内リンク踏んだ後の色 */
-}
-
-/* 管理者新規登録ページ *
-.admin_regist {
-  background-color: rgb(150, 146, 146);
-}
-
-/* フッター */
-footer {
-  width: 100%;
-  height: 55px;
-  background-color: #A6B2C1;
-  color: white;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
 }
 
 /* ヘッダー */
@@ -214,17 +46,6 @@ header {
   font-size: 140%;
 }
 
-/* リンク用 
-.main-nav li a{
-  /*text-decoration: none;
-  text-align: center;
-  color: initial; 
-  
-  /*全体をクリック可能に
-  display: block;
-  width: 100%;
-  height: 100%;
-}  */
 
 /* nav CSS */
 .gnavi__wrap {
@@ -398,4 +219,74 @@ header {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* 登録フォーム */
+.form {
+  width: 960px;/*横幅*/
+  margin: 0 auto;/*中央寄せ*/
+  padding: 60px 0;
+}
+.form-title {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.form-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.form-item,
+.form-body {
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+.form-item {
+  text-align: left; /* テキスト左寄せ */
+  width: 30%; /* 横幅30%指定（グレーの背景色部分） */
+  background-color: #eee; /* グレーの背景色 */
+}
+.form-body {
+  width: 60%; /* 横幅60%指定（白背景色部分） */
+}
+.form-text {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  max-width: 400px;
+}
+.form-submit {
+  width: 150px; /* 横幅指定 */
+  background-color: #333; /* 背景色 */
+  color: #fff; /* 文字色 */
+  font-weight: bold; /* 文字の太さ */
+  display: block; /* インライン要素をブロック要素に変更 */
+  margin: 0 auto; /* 中央寄せ */
+  font-size: 14px; /* 文字の大きさ */
+  padding: 12px; /* 内側の余白 */
+  border-radius: 100vh; /* 角丸指定 */
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+/* フッター */
+footer {
+  width: 100%;
+  height: 55px;
+  background-color: #A6B2C1;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
 }

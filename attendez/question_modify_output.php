@@ -14,7 +14,6 @@ if ($_REQUEST['answer'] != "ア" && $_REQUEST['answer'] != "イ" && $_REQUEST['a
 if (empty($_REQUEST['ans1']) && empty($_REQUEST['ans2']) && empty($_REQUEST['ans3']) && empty($_REQUEST['ans4'])) {
     echo '解答群を入力してください';
 } else
-
 if ($sql->execute([htmlspecialchars($_REQUEST['question']), htmlspecialchars($_REQUEST['answer']), htmlspecialchars($_REQUEST['ans1']),
     htmlspecialchars($_REQUEST['ans2']), htmlspecialchars($_REQUEST['ans3']), htmlspecialchars($_REQUEST['ans4']), $_REQUEST['id']]
 )) {

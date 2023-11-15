@@ -1,7 +1,7 @@
 <?php require 'header.php'; ?>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["POST_METHOD"] == "POST") {
     // フォームから送信された削除対象の予定IDを取得
     $Id = $_POST["Id"];
  

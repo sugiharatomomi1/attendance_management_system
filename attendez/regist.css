@@ -1,0 +1,56 @@
+/* 登録フォーム */
+
+.form {
+  width: 960px;/*横幅*/
+  margin: 0 auto;/*中央寄せ*/
+  padding: 60px 0;
+}
+.form-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.form-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.form-item,
+.form-body {
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+.form-item {
+  text-align: left; /* テキスト左寄せ */
+  width: 30%; /* 横幅30%指定（グレーの背景色部分） */
+  background-color: #eee; /* グレーの背景色 */
+}
+.form-body {
+  width: 60%; /* 横幅60%指定（白背景色部分） */
+}
+.form-text {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  max-width: 400px;
+}
+.form-submit {
+  width: 150px; /* 横幅指定 */
+  background-color: #333; /* 背景色 */
+  color: #fff; /* 文字色 */
+  font-weight: bold; /* 文字の太さ */
+  display: block; /* インライン要素をブロック要素に変更 */
+  margin: 0 auto; /* 中央寄せ */
+  font-size: 14px; /* 文字の大きさ */
+  padding: 12px; /* 内側の余白 */
+  border-radius: 100vh; /* 角丸指定 */
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}

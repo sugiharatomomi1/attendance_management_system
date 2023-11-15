@@ -1,26 +1,38 @@
 
-<?php require 'header.php'; ?>
+<?php session_start(); ?>
 <!--新規会員登録の選択画面-->
 <div class="admin_regist_output">
 
 <?php
-if(isset($_REQUEST['school_id'])){
-    $_SESSION['school_id']=$_REQUEST['school_id'];
+if(isset($_POST['school_id'])){
+  $_SESSION['school_id'] =$_POST['school_id'];
 }
-if(isset($_REQUEST['name'])){
-    $_SESSION['name']=$_REQUEST['name'];
+if(isset($_POST['name'])){
+    $_SESSION['name']=$_POST['name'];
 }
-if(isset($_REQUEST['class'])){
-    $_SESSION['class']=$_REQUEST['class'];
+if(isset($_POST['class'])){
+    $_SESSION['class']=$_POST['class'];
 }
-if(isset($_REQUEST['mailadress'])){
-    $_SESSION['mailadress']=$_REQUEST['mailadress'];
+if(isset($_POST['mailadress'])){
+    $_SESSION['mailadress']=$_POST['mailadress'];
 }
-if(isset($_REQUEST['password'])){
-    $_SESSION['password']=$_REQUEST['password'];
+if(isset($_POST['phone_number'])){
+    $_SESSION['phone_number']=$_POST['phone_number'];
 }
-if(isset($_REQUEST['password2'])){
-    $_SESSION['password2']=$_REQUEST['password2'];
+if(isset($_POST['password'])){
+    $_SESSION['password']=$_POST['password'];
+}
+if(isset($_POST['password2'])){
+    $_SESSION['password2']=$_POST['password2'];
+}
+if(isset($_POST['secret_question1'])){
+    $_SESSION['secret_question1']=$_POST['secret_question1'];
+}
+if(isset($_POST['secret_question2'])){
+    $_SESSION['secret_question2']=$_POST['secret_question2'];
+}
+if(isset($_POST['secret_question3'])){
+    $_SESSION['secret_question3']=$_POST['secret_question3'];
 }
 
 if($_SESSION['password'] === $_SESSION['password2']){
@@ -34,4 +46,3 @@ exit();
 }
 
 ?>
-<?php require 'footer.php';?>

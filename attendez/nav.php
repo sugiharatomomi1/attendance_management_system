@@ -5,7 +5,7 @@
         </li>
 
         <li class="gnavi__list">
-            <a href=".py">出欠登録画面</a>
+            <a href=".html">出欠登録画面</a>
         </li>
 
         <li class="gnavi__list">
@@ -13,7 +13,7 @@
                 <ul class="dropdown__lists">
                     <li class="dropdown__list"><a href="attend_state.php">現在の出欠状況</a></li>
                     <li class="dropdown__list"><a href="attend_history.php">月ごとの出欠状況</a></li>
-                    <li class="dropdown__list"><a href="attend_state_modify.php">出欠情報変更</a></li>
+                    <li class="dropdown__list"><a href="attend_state_modify.php">出欠情報修正</a></li>
                     <li class="dropdown__list"><a href="log.php">ログ</a></li>
                 </ul>
         </li>
@@ -44,7 +44,6 @@
         <li class="gnavi__list">
             <a>管理者メニュー</a>
                 <ul class="dropdown__lists">
-                    <li class="dropdown__list"><a href="admin_regist.php">管理者新規登録</a></li>
                     <li class="dropdown__list"><a href="admin_modify.php">管理者登録情報変更</a></li>
                 </ul>
         </li>

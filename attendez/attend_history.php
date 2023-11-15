@@ -6,22 +6,22 @@
 
 <?php
 //何順？
-if(isset($_REQUEST['display'])){
-    $student_number=$_REQUEST['display'];
+if(isset($_POST['display'])){
+    $student_number=$_POST['display'];
 }
 //日付
-if(isset($_REQUEST['year'])){
-    $year=$_REQUEST['year'];
+if(isset($_POST['year'])){
+    $year=$_POST['year'];
 }
-if(isset($_REQUEST['month'])){
-    $month=$_REQUEST['month'];
+if(isset($_POST['month'])){
+    $month=$_POST['month'];
 }
-if(isset($_REQUEST['date'])){
-    $date=$_REQUEST['date'];
+if(isset($_POST['date'])){
+    $date=$_POST['date'];
 }
 //出席状況確認
-if(isset($_REQUEST['situation'])){
-    $situation=$_REQUEST['situation'];
+if(isset($_POST['situation'])){
+    $situation=$_POST['situation'];
 }
 /*確認
 echo $student_number,'<br>';

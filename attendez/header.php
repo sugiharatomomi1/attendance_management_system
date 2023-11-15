@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php session_start();
+ini_set('display_errors', "On");
+ini_set('error_reporting', E_ALL);  //エラーコード
+ ?>
 
 <!DOCTYPE html>
 <html lang="ja">

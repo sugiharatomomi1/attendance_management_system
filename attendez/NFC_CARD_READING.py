@@ -13,4 +13,4 @@ while True:
             tag.sys = 3
             idm = binascii.hexlify(tag.idm)
             print(idm.decode())
-            break
+        break
