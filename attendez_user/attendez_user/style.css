@@ -1,0 +1,334 @@
+@charset "UTF-8";
+
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+
+/* fontawesome */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* Simple Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* body */
+body {
+  background: #e9e9e9;
+  color: #5e5e5e;
+  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
+}
+
+/* Form Layout */
+.form-wrapper {
+  background: #fafafa;
+  margin: 150px auto;
+  padding: 0 1em;
+  max-width: 450px;
+}
+
+#error_message {
+  text-align: center;
+  color: red;
+  
+}
+
+h1 {
+  text-align: center;
+  padding: 1em 0;
+}
+
+form {
+  padding: 0 1.5em;
+}
+
+.form-item {
+  margin-bottom: 0.75em;
+  width: 100%;
+}
+
+.form-item input {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  height: 50px;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.form-item input:focus {
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
+}
+
+.button-panel {
+  margin: 2em 0 0;
+  width: 100%;
+}
+
+.button-panel .button {
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.button:hover {
+  background: #ee3e52;
+}
+
+.form-footer {
+  font-size: 1em;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.form-footer a {
+  color: #8c8c8c;
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+
+.form-footer a:hover {
+  border-bottom: 1px dotted #8c8c8c;
+}
+/* #login-title {
+  font-size: 50px;
+  position: absolute;
+  left: 640px;
+  top: 100px;
+}
+.mailaddress {
+  font-size: 18px;
+  position: absolute;
+  left: 760px;
+  top: 286px;
+}
+#mailaddress {
+  position: absolute;
+  left: 910px;
+  top: 307px;
+}
+.password {
+  position: absolute;
+  left: 812px;
+  top: 350px;
+}
+#password {
+  position: absolute;
+  left: 910px;
+  top: 367px;
+}
+#login {
+  position: absolute;
+  left: 895px;
+  top: 480px;
+}
+#password-forget {
+  position: absolute;
+  left: 848px;
+  top: 630px;
+}
+#admin-regist {
+  position: absolute;
+  left: 900px;
+  top: 700px;
+} */
+
+/* リンクの色消し */
+a {
+  color: black; /* aタグの色変更 */
+  text-decoration: none; /* 下線消し */
+}
+
+a :visited {
+  color: black; /* 踏んだ後の色 */
+}
+
+.nav a {
+  color: black; /* ヘッダー内aタグの色変更 */
+}
+
+.nav a :visited {
+  color: black; /* ヘッダー内リンク踏んだ後の色 */
+}
+
+/* 管理者新規登録ページ *
+.admin_regist {
+  background-color: rgb(150, 146, 146);
+}
+
+/* フッター */
+footer {
+  width: 100%;
+  height: 55px;
+  background-color: RED;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+
+/* ヘッダー */
+header {
+  width: 100%;
+  height: 67px;
+  background-color: RED;
+  color: white;
+}
+.nav-line1 {
+  background-color: RED;
+  position: absolute;
+  left: 35px;
+  right: 35px;
+  top: 20px;
+  font-size: 140%;
+}
+
+.main-nav {
+  background-color: RED;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /*中央寄せ*/
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 4.2rem;
+  font-size: 140%;
+}
+
+/* リンク用 
+.main-nav li a{
+  /*text-decoration: none;
+  text-align: center;
+  color: initial; 
+  
+  /*全体をクリック可能に
+  display: block;
+  width: 100%;
+  height: 100%;
+}  */
+
+/* nav CSS */
+.gnavi__wrap {
+  width: 100%;
+  margin: 0 auto;
+  z-index: 99;
+  position: relative;
+}
+.gnavi__lists {
+  display: flex;
+  list-style: none;
+}
+.gnavi__list {
+  width: 25%;
+  height: 60px;
+  background-color: RED;
+  position: relative;
+  transition: all .3s;
+  list-style: none;
+}
+.gnavi__list:hover {
+  background-color: green;
+}
+.gnavi__list:not(:first-child)::before {
+  content: "";
+  width: 1px;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .3s;
+}
+.gnavi__list:hover::before {
+  background-color: GREEN;
+}
+.gnavi__list a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #1b4059;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  transition: all .3s;
+}
+.gnavi__list:hover a {
+  color: #fff;
+}
+
+/*ヘッダー[ログイン、時計、ログアウト]一列に配置*/
+.link-container {
+  display: flex; /* 要素を横並びに配置 */
+  justify-content: space-between; /* 要素を均等に配置 */
+}
+.link-container a {
+  text-decoration: none; /* リンクの下線を削除（オプション） */
+  margin-right: 50px; /* リンク要素間の水平マージン（間隔）を調整 */
+}
+
+/*ヘッダー[ログアウト]右に配置*/
+.right-align {
+  text-align: right;
+}
+
+/*ヘッダー[時計]中央に配置*/
+.center-content {
+  text-align: center; /* テキストや要素内のコンテンツを水平方向中央配置 */
+}
+
+/*ヘッダードロップダウンメニュー*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  /*background-color: #4CAF50; */
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-content a:hover {
+  background-color: #e7ceed;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
