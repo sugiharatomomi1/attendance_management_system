@@ -57,28 +57,13 @@ if(isset($_SESSION['myapp_admin_info'])){
         <input type="password" id="newpassword2" autocomplete="newpassword2" name="newpassword2" value="<?= $_SESSION['newpassword2'] ?>" readonly>
       </td>
     </tr>
-    <tr>
-      <td>秘密の質問1.母親の旧姓は？:</td>
-      <td>
-        <input type="text" id="secret_question1" autocomplete="secret_question1" name="secret_question1" value="<?= $_SESSION['secret_question1'] ?>" readonly>
-      </td>
-    </tr>
-    <tr>
-      <td>秘密の質問2.初めて飼ったペットの名前は？:</td>
-      <td>
-        <input type="text" id="secret_question2" autocomplete="secret_question2" name="secret_question2" value="<?= $_SESSION['secret_question2'] ?>" readonly>
-      </td>
-    </tr>
-    <tr>
-      <td>秘密の質問3.好きな映画は？:</td>
-      <td>
-        <input type="text" id="secret_question3" autocomplete="secret_question3" name="secret_question3" value="<?= $_SESSION['secret_question3'] ?>" readonly>
-      </td>
-    </tr>
   </table>
   <input type="submit" value="更新">
 </form>
 </div>
+
+  <!-- セッションを保持して戻る -->
+  <button type="button" onclick=history.back()>＜前のページへ</button>
 
 <!-- jQueryライブラリの読み込み-->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">

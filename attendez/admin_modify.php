@@ -2,7 +2,6 @@
 <?php require 'header.php'; ?>
 <!--新規会員登録の選択画面-->
 <div class="admin_modify">
-  管理者登録情報変更
 <?php
 $name=$class=$mailadress=$password=$newpassword=$newpassword2=$phone_number='';
 if(isset($_SESSION['myapp_admin_info'])){
@@ -11,84 +10,117 @@ if(isset($_SESSION['myapp_admin_info'])){
     $mailadress=$_SESSION['myapp_admin_info']['mailadress'];
     $phone_number=$_SESSION['myapp_admin_info']['phone_number'];
 }
+?>
+
+<div class="form">
+<h1 class="form-title">管理者情報変更</h1><br>
+
+<?php
 if(isset($_SESSION['error'])){
-  echo $_SESSION['error'];
+  echo '<h3 id="error_message">', $_SESSION['error'], '</h3>';
 };
 ?>
+
 <form action="admin_modify_output.php" method="post">
-  <table>
+  <table class="form-table">
     <tr>
-      <td>担当クラス:</td>
-      <td>
-        <input type="text" id="class" name="class" autocomplete="class" value="<?= $class ?>">
+    <th class="form-item">担当クラス</th>
+      <td class="form-body">
+        <input type="text" class="form-text" id="class" name="class" autocomplete="class" value="<?= $class ?>">
       </td>
     </tr>
     <tr>
-      <td>氏名:</td>
-      <td>
-        <input type="text" id="name" name="name" autocomplete="name" value="<?= $name ?>">
+    <th class="form-item">氏名</th>
+      <td class="form-body">
+        <input type="text" class="form-text" id="name" name="name" autocomplete="name" value="<?= $name ?>">
       </td>
     </tr>
     <tr>
-      <td>メールアドレス:</td>
-      <td>
-        <input type="text" id="mailadress" name="mailadress" autocomplete="mailadress" value="<?= $mailadress ?>">
+    <th class="form-item">メールアドレス</th>
+      <td class="form-body">
+        <input type="email" class="form-text" id="mailadress" name="mailadress" autocomplete="mailadress" value="<?= $mailadress ?>">
       </td>
     </tr>
     <tr>
-      <td>現在のパスワード:</td>
-      <td>
-        <input type="password" id="password" autocomplete="password" name="password" value="">
+    <th class="form-item">現在のパスワード</th>
+      <td class="form-body">
+        <div class="password-container">
+        <input type="password" class="form-text" id="passwordInput1" autocomplete="password" name="password" value=""><button type="button" id="showPasswordButton1">表示</button>
+        </div>
       </td>
     </tr>
     <tr>
-      <td>新しいパスワード:</td>
-      <td>
-        <input type="password" id="newpassword" autocomplete="newpassword" name="newpassword" value="<?= $newpassword ?>">
+    <th class="form-item">新しいパスワード</th>
+      <td class="form-body">
+        <div class="password-container">
+        <input type="password" class="form-text" id="passwordInput2" autocomplete="newpassword" name="newpassword" value="<?= $newpassword ?>"><button type="button" id="showPasswordButton2">表示</button>
+        </div>
       </td>
     </tr>
     <tr>
-      <td>新しいパスワード再入力:</td>
-      <td>
-        <input type="password" id="newpassword2" autocomplete="newpassword2" name="newpassword2" value="<?= $newpassword2 ?>">
+    <th class="form-item">新しいパスワード再入力</th>
+      <td class="form-body">
+        <div class="password-container">
+        <input type="password" class="form-text" id="passwordInput3" autocomplete="newpassword2" name="newpassword2" value="<?= $newpassword2 ?>"><button type="button" id="showPasswordButton3">表示</button>
+        </div>
       </td>
     </tr>
     <tr>
-      <td>電話番号:</td>
-      <td>
-        <input type="text" id="phone_number" autocomplete="phone_number" name="phone_number" value="<?= $phone_number ?>">
+    <th class="form-item">電話番号</th>
+      <td class="form-body">
+        <input type="text" class="form-text" id="phone_number" autocomplete="phone_number" name="phone_number" value="<?= $phone_number ?>">
       </td>
     </tr>
   </table>
-  <span class="toggle-password" onclick="togglePasswordVisibility()">&#x1f441;</span>
-  <input type="submit" value="確認画面へ">
+  <input class="form-submit" type="submit" value="確認画面へ">
 </form>
-
- <script>
-  function togglePasswordVisibility() {
-    var passwordInput = document.getElementById("password");
-    var newpasswordInput = document.getElementById("newpassword");
-    var newpassword2Input = document.getElementById("newpassword2");
-    var toggleIcon = document.querySelector(".toggle-password");
-
-    toggleInputType(passwordInput);
-    toggleInputType(newpasswordInput);
-    toggleInputType(newpassword2Input);
-
-    // アイコンを切り替える
-    toggleIcon.textContent = (passwordInput.type === "password") ? "👁️" : "🙈";
-  }
-
-  function toggleInputType(inputElement) {
-    inputElement.type = (inputElement.type === "password") ? "text" : "password";
-  }
-  </script>
-
+</div>
+<p><a href="admin_delete.php" class="form-submit" style="color:red">アカウント削除</a></p>
 
 <!-- jQueryライブラリの読み込み-->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-</script>
 <script>
+
+    var showPasswordButton = document.getElementById("showPasswordButton1");
+    showPasswordButton.addEventListener("click", togglePasswordVisibility1);
+
+    function togglePasswordVisibility1() {
+        var passwordInput = document.getElementById("passwordInput1");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            showPasswordButton.textContent = "非表示";
+        } else {
+            passwordInput.type = "password";
+            showPasswordButton.textContent = "表示";
+        }
+    }
+
+    var showPasswordButton = document.getElementById("showPasswordButton2");
+    showPasswordButton.addEventListener("click", togglePasswordVisibility2);
+
+    function togglePasswordVisibility2() {
+        var passwordInput = document.getElementById("passwordInput2");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            showPasswordButton.textContent = "非表示";
+        } else {
+            passwordInput.type = "password";
+            showPasswordButton.textContent = "表示";
+        }
+    }
+    var showPasswordButton = document.getElementById("showPasswordButton3");
+    showPasswordButton.addEventListener("click", togglePasswordVisibility3);
+
+    function togglePasswordVisibility3() {
+        var passwordInput = document.getElementById("passwordInput3");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            showPasswordButton.textContent = "非表示";
+        } else {
+            passwordInput.type = "password";
+            showPasswordButton.textContent = "表示";
+        }
+    }
+
     $('form').submit(function () {
       const name = $("#name").val();
       const className = $("#class").val();

@@ -4,8 +4,17 @@ $pdo=new PDO('mysql:host=localhost;dbname=2023_attendez;charset=utf8', 'root',''
 $sql=$pdo->prepare('select * from question where question_id=?');
 $sql->execute([$_REQUEST['id']]);
 foreach ($sql as $row) {
+    $id=$row['question_id'];
     echo '<form action="question_modify_confirm.php" method="post">';
-    echo '<p>問題番号：', $row['question_id'], '</p>';
+    if ($id < 10) {
+        echo '<p>問題番号：000', $id, '</p>';
+    } elseif ($id < 100) {
+        echo '<p>問題番号：00', $id, '</p>';
+    } elseif ($id < 1000) {
+        echo '<p>問題番号：0', $id, '</p>';
+    } else {
+        echo '<p>問題番号：', $id, '</p>';
+    }
     echo '<input type="hidden" name="id" value="', $row['question_id'], '">';
     echo '<input type="text" name="question" value="', $row['question'], '">';
     echo '<br>';
@@ -16,7 +25,6 @@ foreach ($sql as $row) {
     echo '<br>';
     echo '正答：<input type="text" name="answer" value="', $row['question_answer'], '">';
     echo '<input type="submit" value="更新">';
-    echo '<a href=question_delete.php?id=', $row['question_id'], '>この問題を削除する</a>';
     echo '</form>';
 }
 ?>

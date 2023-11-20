@@ -1,18 +1,50 @@
+<head>
+        <link rel="stylesheet" href="style.css">
+</head>
 <?php session_start(); ?>
 
 <!-- パスワードを忘れた場合にメールを送る -->
-<div class="password_forget">
+<div class="form">
+<h1 class="form-title">パスワードを忘れた場合</h1>
     <form action='' method="post">
-        メールアドレス:<input type="text" name="mailadress"><br>
-        電話番号:<input type="text" name="phone_number"><br>
-        秘密の質問1:<input type="text" name="secret_question1"><br>
-        秘密の質問2:<input type="text" name="secret_question2"><br>
-        秘密の質問3:<input type="text" name="secret_question3"><br>
-        <input type="submit" value="送信"/><br>
+    <table class="form-table">
+        <tr>
+            <th class="form-item">メールアドレス</th>
+            <td class="form-body">
+                <input type="text" name="mailadress" class="form-text">
+            </td>
+        </tr>
+        <tr>
+            <th class="form-item">電話番号</th>
+            <td class="form-body">
+                <input type="text" name="phone_number" class="form-text">
+            </td>
+        </tr>
+        <tr>
+            <th class="form-item">秘密の質問1.母親の旧姓は？</th>
+            <td class="form-body">
+                <input type="text" name="secret_question1" class="form-text">
+            </td>
+        </tr>
+        <tr>
+            <th class="form-item">秘密の質問2.初めて飼ったペットの名前は？</th>
+            <td class="form-body">
+                <input type="text" name="secret_question2" class="form-text">
+            </td>
+        </tr>
+        <tr>
+            <th class="form-item">秘密の質問3.好きな映画は？</th>
+            <td class="form-body">
+                <input type="text" name="secret_question3" class="form-text">
+            </td>
+        </tr>
+        </table>
+        <input class="form-submit" type="submit" value="送信"/>
     </form>
+    <div class="form-footer">
+        <p><a href="index.php">ログイン</a></p>
+    </div>
 </div>
-<a href="index.php">ログインへ</a>
-<a href="admin_regist.php">新規登録はこちら</a>
 
 <?php
 // メールアドレスを入力して送信した処理
@@ -77,6 +109,3 @@ if(isset($_POST['mailadress']) && isset($_POST['phone_number'])
         }
     });
 </script>
-
-
-<?php require 'footer.php';?>

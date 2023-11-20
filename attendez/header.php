@@ -5,6 +5,7 @@ ini_set('error_reporting', E_ALL);  //エラーコード
 
 <!DOCTYPE html>
 <html lang="ja">
+
     <head>
         <meta charaset="UTF=8">
         <title>Attend EZ</title>
@@ -44,51 +45,39 @@ ini_set('error_reporting', E_ALL);  //エラーコード
             window.onload = function() {
             showClock2();
             };
-
-
-            
         </script>
 
     </head> 
 
 <body> 
-    <div id="index" class="big-bg"> 
+    <div id="index" class="main_contents">
 
         <header>
-         <ul class="nav-line1">     
-    <div class="link-container">
 
-            <a>こんにちは,
-             <?php
-                 if(isset($_SESSION['myapp_admin_info'])){
-                 echo $_SESSION['myapp_admin_info']['name'],'さん';
-                 }else {
-                 echo '〇〇';
-                 };
-             ?>
-            </a>
+                <div class="link-container">
 
-
-                <div class="center-container">
-                    <div class="center-content">
-                        <!--この要素は水平方向に左右中央に配置されます。-->
-                        <a id="RealtimeClockArea">※ここに時計が表示されます。</a>
+                    <div class="h-con-l">
+                        <a>こんにちは,
+                            <?php
+                                if(isset($_SESSION['myapp_admin_info'])){
+                                echo $_SESSION['myapp_admin_info']['name'],'さん';
+                                }else {
+                                echo '〇〇';
+                                };
+                            ?>
+                        </a>
                     </div>
+
+                    <div class="h-con-c">
+                        <a id="RealtimeClockArea">※ここに時計が表示されます。</a> <!--この要素は水平方向に左右中央に配置されます。-->
+                    </div>
+
+                    <div class="h-con-r">
+                        <a href="logout.php">ログアウト</a> <!--このテキストは右に配置されます。-->
+                    </div>
+
                 </div>
 
-
-
-
-                <div class="right-align">
-                    <!--このテキストは右に配置されます。-->
-                    <a href="logout.php">ログアウト</a>
-                </div>
-
-    </div>           
-
-<div id="index" class="main_contents"> <!--本文-->
-
-         </ul>
+                
         </header>
-
-<?php require 'nav.php'; ?>
+        <?php require 'nav.php'; ?>

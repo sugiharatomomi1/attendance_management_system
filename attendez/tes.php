@@ -64,21 +64,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $display = isset($_POST['display']) ? $_POST['display'] : '学籍番号順';
     $situation = isset($_POST['situation']) ? $_POST['situation'] : '';
   
-$sql = 'SELECT students_info.student_number, students_info.attendance_number, students_info.name, myapp_attendstatus.status, myapp_attendstatus.date
-        FROM students_info
-        LEFT JOIN myapp_attendstatus ON students_info.student_number = myapp_attendstatus.student_number';
-
-if (!empty($situation) && $situation !== 'すべて') {
-    $sql .= ' WHERE myapp_attendstatus.status = :situation';
-}
-
-if ($date_option === 'today') {
-    $sql .= ' AND DATE(myapp_attendstatus.date) = CURDATE()';
-} elseif ($date_option === 'yesterday') {
-    $sql .= ' AND DATE(myapp_attendstatus.date) = CURDATE() - INTERVAL 1 DAY';
-} elseif ($date_option === 'day_before_yesterday') {
-    $sql .= ' AND DATE(myapp_attendstatus.date) = CURDATE() - INTERVAL 2 DAY';
-}
+    $sql = 'SELECT students_info.student_number, students_info.attendance_number, students_info.name, myapp_attendstatus.status 
+            FROM students_info
+            LEFT JOIN myapp_attendstatus ON students_info.student_number = myapp_attendstatus.student_number';
+  
+    if (!empty($situation) && $situation !== 'すべて') {
+        $sql .= ' WHERE myapp_attendstatus.status = :situation';
+    }
+  
     if ($display === '学籍番号順') {
         $sql .= ' ORDER BY students_info.student_number';
     } elseif ($display === '出席番号順') {

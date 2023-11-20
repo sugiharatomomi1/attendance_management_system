@@ -20,13 +20,11 @@ if(empty($sql->fetchAll())){
     $sql->execute([htmlspecialchars($_SESSION['IDM']),  htmlspecialchars($_SESSION['student_number']),
      htmlspecialchars($_SESSION['class']),
     htmlspecialchars($_SESSION['attendance_number']),htmlspecialchars($_SESSION['name']),htmlspecialchars($_SESSION['password'])]);
-    echo '登録が完了しました';
-    echo '<li><a href="students_regist.php">ホーム画面へ</a></li>';
+    echo '<p>登録が完了しました</p>';
+    echo '<p><a href="students_regist.php">他の生徒を登録する</a></p>';
 }else{
-    $_SESSION['err_msg'] = 'ログイン名が既に使用されていますので、変更してください。';
-    echo '<ul class="menu">';
-    echo '<li><a href="students_regist.php">ホーム画面へ</a></li>';
-    echo '</ul>';
+    $_SESSION['err_msg'] = '何らかの問題で登録に失敗しました。';
+    echo '<p><a href="students_regist.php">学生新規登録画面へ</a></p>';
 }
 ?>
 <?php require 'footer.php';?>

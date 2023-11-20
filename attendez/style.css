@@ -46,6 +46,12 @@ header {
   font-size: 140%;
 }
 
+#error_message {
+  text-align: center;
+  color: red;
+  padding-bottom: 10px;
+}
+
 
 /* nav CSS */
 .gnavi__wrap {
@@ -167,20 +173,34 @@ header {
 .link-container {
   display: flex; /* 要素を横並びに配置 */
   justify-content: space-between; /* 要素を均等に配置 */
+  align-items: center;
+  height: 70px;
 }
 .link-container a {
   text-decoration: none; /* リンクの下線を削除（オプション） */
-  margin-right: 50px; /* リンク要素間の水平マージン（間隔）を調整 */
+}
+.h-con-l,
+.h-con-c,
+.h-con-r {
+  font-size: 20px;
+  font-family: sans-serif;
 }
 
-/*ヘッダー[ログアウト]右に配置*/
-.right-align {
+.h-con-l {
+  text-align: left;
+  width: 33.33333%;
+  padding-left: 10px;
+}
+
+.h-con-c {
+  text-align: center;
+  width: 33.33333%;
+}
+
+.h-con-r {
   text-align: right;
-}
-
-/*ヘッダー[時計]中央に配置*/
-.center-content {
-  text-align: center; /* テキストや要素内のコンテンツを水平方向中央配置 */
+  width: 33.33333%;
+  padding-right: 10px;
 }
 
 /*ヘッダードロップダウンメニュー*/
@@ -221,7 +241,15 @@ header {
   display: block;
 }
 
+.main_contents {
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 45px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
 /* 登録フォーム */
+
 .form {
   width: 960px;/*横幅*/
   margin: 0 auto;/*中央寄せ*/
@@ -258,9 +286,10 @@ header {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  max-width: 400px;
+  max-width: 600px;
 }
 .form-submit {
+  text-align: center;
   width: 150px; /* 横幅指定 */
   background-color: #333; /* 背景色 */
   color: #fff; /* 文字色 */
@@ -276,17 +305,36 @@ header {
   -moz-appearance: none;
   cursor: pointer;
 }
+.form-footer {
+  font-size: 1em;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.form-footer a {
+  color: #8c8c8c;
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+
+.form-footer a:hover {
+  border-bottom: 1px dotted #8c8c8c;
+}
+
+/* 現在の出欠状況 */
+
 
 /* フッター */
+
 footer {
   width: 100%;
-  height: 55px;
+  height: 45px;
   background-color: #A6B2C1;
   color: white;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: absolute;
   bottom: 0;
 }

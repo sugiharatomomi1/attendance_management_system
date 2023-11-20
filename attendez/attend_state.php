@@ -70,37 +70,45 @@ ORDER BY ' . ($display === '学籍番号順' ? 'students_info.student_number' : 
 
 $sql->execute();
 
-// 結果をテーブルとして出力
-echo "<table border='1'>";
-echo "<tr>
-<th>学籍番号</th>
-<th>出席番号</th>
-<th>名前</th>
-<th>出席状況</th>
-<th>日付</th>
-</tr>";
+    // 結果をテーブルのヘッダーとして出力
+    echo "<table border='1'>";
+    echo "<tr>
+            <th>学籍番号</th>
+            <th>出席番号</th>
+            <th>名前</th>
+            <th>出席状況</th>
+            <th>日付</th>
+          </tr>";
 
-while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-// ここで条件に合わせてデータを絞り込む
-if (($date_option === 'today' && $row['date'] === date('Y-m-d')) || // 今日の場合
-($date_option === 'yesterday' && $row['date'] === date('Y-m-d', strtotime('-1 day'))) || // 昨日の場合
-($date_option === 'day_before_yesterday' && $row['date'] === date('Y-m-d', strtotime('-2 days'))) || // 一昨日の場合
-($date_option === 'all')) { // 日付の条件がない場合はすべて表示
+    $hasResults = false; // フラグ: 結果が見つかったかどうか
 
-// 状態による絞り込み
-if ($situation === 'すべて' || $row['status'] === $situation) {
-  echo "<tr>";
-  echo "<td>" . $row['student_number'] . "</td>";
-  echo "<td>" . $row['attendance_number'] . "</td>";
-  echo "<td>" . $row['name'] . "</td>";
-  echo "<td>" . $row['status'] . "</td>";
-  echo "<td>" . $row['date'] . "</td>";
-  echo "</tr>";
-}
-}
-}
+    while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+        // ここで条件に合わせてデータを絞り込む
+        if (($date_option === 'today' && $row['date'] === date('Y-m-d')) ||
+            ($date_option === 'yesterday' && $row['date'] === date('Y-m-d', strtotime('-1 day'))) ||
+            ($date_option === 'day_before_yesterday' && $row['date'] === date('Y-m-d', strtotime('-2 days'))) ||
+            ($date_option === 'all')) { // 日付の条件がない場合はすべて表示
 
-echo "</table>";
+            // 状態による絞り込み
+            if ($situation === 'すべて' || $row['status'] === $situation) {
+                $hasResults = true; // 結果が見つかった場合はフラグをtrueに設定
+
+                echo "<tr>";
+                echo "<td>" . $row['student_number'] . "</td>";
+                echo "<td>" . $row['attendance_number'] . "</td>";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['status'] . "</td>";
+                echo "<td>" . $row['date'] . "</td>";
+                echo "</tr>";
+            }
+        }
+    }
+
+    echo "</table>";
+      // 結果が見つからなかった場合のメッセージを表示
+      if (!$hasResults) {
+        echo "データが見つかりませんでした。";
+    }
 }
 
 else { // 一番最初の表示

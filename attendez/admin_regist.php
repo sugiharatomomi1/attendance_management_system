@@ -1,3 +1,6 @@
+<head>
+        <link rel="stylesheet" href="style.css">
+</head>
 <!--新規会員登録の選択画面-->
 <div class="form">
     <h1 class="form-title">出欠管理システム新規登録</h1>
@@ -39,7 +42,7 @@ if(isset($_SESSION['name'])){
         <tr>
             <th class="form-item">メールアドレス</th>
             <td class="form-body">
-                <input type="text" id="mailadress" name="mailadress" class="form-text" autocomplete="mailadress" value="<?php echo $mailadress; ?>">
+                <input type="email" id="mailadress" name="mailadress" class="form-text" autocomplete="mailadress" value="<?php echo $mailadress; ?>">
             </td>
         </tr>
         <tr>
@@ -81,6 +84,9 @@ if(isset($_SESSION['name'])){
     </table>
     <input class="form-submit" type="submit" value="確認画面へ">
 </form>
+    <div class="form-footer">
+        <p><a href="index.php">ログイン</a></p>
+    </div>
 </div>
 
 <!-- jQueryライブラリの読み込み-->

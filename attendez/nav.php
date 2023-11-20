@@ -5,7 +5,7 @@
         </li>
 
         <li class="gnavi__list">
-            <a href=".html">出欠登録画面</a>
+            <a href="">出欠登録画面</a>
         </li>
 
         <li class="gnavi__list">

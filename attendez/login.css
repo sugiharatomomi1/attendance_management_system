@@ -45,6 +45,7 @@ form {
 .form-item {
   margin-bottom: 0.75em;
   width: 100%;
+  text-align: right;
 }
 
 .form-item input {

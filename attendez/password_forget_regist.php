@@ -1,20 +1,37 @@
+<head>
+        <link rel="stylesheet" href="style.css">
+</head>
 <!--セッションの開始-->
 <?php session_start(); ?>
 
 <!--パスワードを新しくする画面-->
-<div class="password_forget_regist">
-    新しいパスワードを入力してください
+<div class="form">
+<h1 class="form-title">新しいパスワードを入力して下さい</h1>
     <form action="password_forget_regist_output.php" method="post">
-        登録しているメールアドレス:
-        <?php
-            if (isset($_SESSION['mailadress'])) {
-                echo $_SESSION['mailadress'];
-            }
-        ?>
-        <br>
-        新しく登録するパスワード:<input type="password" name="new_password"><br>
-        新しく登録するパスワード再入力:<input type="password" name="password2"><br>
-        <input type="submit" value="送信"><br>
+    <table class="form-table">
+        <tr>
+            <th class="form-item">登録しているメールアドレス</th>
+            <td class="form-body">
+            <?php
+                if (isset($_SESSION['mailadress'])) {
+                    echo $_SESSION['mailadress'];
+                }
+            ?></td>
+        </tr>
+        <tr>
+            <th class="form-item">新しく登録するパスワード</th>
+            <td class="form-body">
+                <input type="password" name="new_password" class="form-text">
+            </td>
+        </tr>
+        <tr>
+            <th class="form-item">新しく登録するパスワード再入力</th>
+            <td class="form-body">
+                <input type="password" name="password2" class="form-text">
+            </td>
+        </tr>
+    </table>
+        <input type="submit" class="form-submit" value="送信"><br>
     </form>
 </div>
 
@@ -35,4 +52,4 @@
         }
     });
 </script>
-<?php require 'footer.php'; ?>
+

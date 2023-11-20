@@ -17,4 +17,3 @@ if (isset($_SESSION['mailadress']) && isset($_POST['new_password'])) {
     }
 }
 ?>
-<?php require 'footer.php'; ?>

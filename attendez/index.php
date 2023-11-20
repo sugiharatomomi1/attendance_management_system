@@ -9,7 +9,7 @@ if(isset($_SESSION['errmsg'])) {
 ?>
 
 <!--ログイン画面-->
-    <div class="form-wrapper">
+<div class="form-wrapper">
   <h1>Attend EZ(管理者ログイン)</h1>
   <form action="login_output.php" method="POST">
 
